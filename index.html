@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activate Change Today Coaching</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              'sans': ['Montserrat', 'sans-serif'],
+              'serif': ['Playfair Display', 'serif'],
+            },
+            colors: {
+              'primary': {
+                'light': '#E0F2FE', // sky-100
+                'DEFAULT': '#0EA5E9', // sky-500
+                'dark': '#0C4A6E' // sky-900
+              },
+              'secondary': '#475569', // slate-600
+              'accent': '#F59E0B', // amber-500 
+            },
+            animation: {
+              scroll: 'scroll 40s linear infinite',
+              'scroll-slow': 'scroll 150s linear infinite',
+            },
+            keyframes: {
+              scroll: {
+                '0%': { transform: 'translateX(0)' },
+                '100%': { transform: 'translateX(-100%)' },
+              }
+            }
+          },
+        },
+      };
+    </script>
+    <style>
+      .scroller-fade::before,
+      .scroller-fade::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 10rem;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .scroller-fade::before {
+        left: 0;
+        background: linear-gradient(to right, #E0F2FE, transparent);
+      }
+      .scroller-fade::after {
+        right: 0;
+        background: linear-gradient(to left, #E0F2FE, transparent);
+      }
+      /* White background variation for services section fade if needed, though mostly used on colored bg */
+      .scroller-fade-white::before {
+        background: linear-gradient(to right, #ffffff, transparent);
+      }
+      .scroller-fade-white::after {
+         background: linear-gradient(to left, #ffffff, transparent);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.33.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-slate-50 font-sans text-secondary">
+    <div id="root"></div>
+  </body>
+</html>
