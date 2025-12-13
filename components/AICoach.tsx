@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
+import { GoogleGenAI } from "@google/genai";
 import { MessageCircle, X, Send, User, Bot, Sparkles, Loader2 } from 'lucide-react';
 
 interface Message {
@@ -32,18 +32,19 @@ const AICoach: React.FC = () => {
     if (!input.trim() || isLoading) return;
 
     const userMessage = input.trim();
-    setMessages(prev => [...prev, { role: 'user', text: userMessage }]);
+    // Optimistically add user message
+    const newMessages: Message[] = [...messages, { role: 'user', text: userMessage }];
+    setMessages(newMessages);
     setInput('');
     setIsLoading(true);
 
     try {
-      // Note: In a real app, this key should be in a .env file and accessed via process.env.API_KEY
-      // For this specific output format which requires functional code, we assume process.env.API_KEY is available.
       if (!process.env.API_KEY) {
          throw new Error("API Key not found");
       }
 
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      
       const systemInstruction = `
         You are the friendly and empathetic AI assistant for "Activate Change Today", a coaching service by Sophie Ashley.
         
@@ -64,21 +65,19 @@ const AICoach: React.FC = () => {
         If asked about booking, direct them to the contact form or "Book a Session" button.
       `;
 
-      const contents = [
-        ...messages.map(m => ({
-          role: m.role,
-          parts: [{ text: m.text }]
-        })),
-        { role: 'user', parts: [{ text: userMessage }] }
-      ];
-
-      // We'll just generate content here for simplicity, though chat history is better handled by chat sessions.
-      // Constructing prompt with history manually for single-turn stateless feel or basic chat.
-      const prompt = `System: ${systemInstruction}\n\nUser: ${userMessage}`;
+      // Convert messages to Content format for the API
+      // We send the conversation history to maintain context
+      const contents = newMessages.map(m => ({
+        role: m.role,
+        parts: [{ text: m.text }]
+      }));
 
       const response = await ai.models.generateContent({
         model: 'gemini-2.5-flash',
-        contents: prompt,
+        contents: contents,
+        config: {
+          systemInstruction: systemInstruction,
+        }
       });
 
       const text = response.text || "I'm having trouble connecting right now. Please try again later.";
@@ -86,7 +85,8 @@ const AICoach: React.FC = () => {
       setMessages(prev => [...prev, { role: 'model', text: text }]);
     } catch (error) {
       console.error("AI Error:", error);
-      setMessages(prev => [...prev, { role: 'model', text: "I'm currently offline (API Key missing or error). Please use the contact form to reach Sophie directly!" }]);
+      // Graceful error message
+      setMessages(prev => [...prev, { role: 'model', text: "I'm currently offline (API configuration issue). Please use the contact form to reach Sophie directly!" }]);
     } finally {
       setIsLoading(false);
     }
@@ -95,11 +95,6 @@ const AICoach: React.FC = () => {
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') handleSend();
   };
-
-  if (!process.env.API_KEY) {
-      // Hide component if no API key is present to avoid broken UI
-      // Or return a placeholder. For this demo, we'll return the UI but it will show error on send if key is missing.
-  }
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
