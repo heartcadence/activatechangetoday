@@ -27,12 +27,12 @@
             },
             animation: {
               scroll: 'scroll 40s linear infinite',
-              'scroll-slow': 'scroll 150s linear infinite',
+              'scroll-slow': 'scroll 80s linear infinite',
             },
             keyframes: {
               scroll: {
                 '0%': { transform: 'translateX(0)' },
-                '100%': { transform: 'translateX(-100%)' },
+                '100%': { transform: 'translateX(-50%)' },
               }
             }
           },
@@ -419,15 +419,13 @@
     <script>
       // Testimonial Renderer
       const testimonialData = [
-        { text: "Working with her was life-changing. I rediscovered my strength after my divorce and now feel more in control and optimistic about my future than ever before.", author: "Sarah L.", role: "Recently Divorced", imgId: 1027 },
-        { text: "I was consistently overlooked for promotions. This coaching helped me find my voice, assert my value, and finally get the recognition and respect I deserve at work.", author: "Jennifer M.", role: "Corporate Manager", imgId: 1011 },
-        { text: "As an entrepreneur, I struggled with imposter syndrome. I now have the confidence to lead my team, make bold decisions, and grow my business with conviction.", author: "Emily R.", role: "Business Owner", imgId: 1012 },
-        { text: "Sophie's coaching was instrumental in helping me develop my executive presence. I now lead meetings with confidence and have a clearer path for my career growth.", author: "Maria K.", role: "Marketing Director", imgId: 1025 },
-        { text: "After a 5-year career break, my confidence was at an all-time low. Sophie helped me recognize my skills and translate them into a new career. I felt supported and understood.", author: "Jessica P.", role: "Return-to-Work Mom", imgId: 1028 },
-        { text: "As a creative, self-doubt can be crippling. This coaching gave me practical tools to overcome creative blocks and value my work, which has directly led to better clients.", author: "Chloe T.", role: "Graphic Designer", imgId: 1014 },
-        { text: "I needed to refine my leadership style. Sophie's guidance was insightful and direct, helping me to communicate more effectively and inspire my team during a critical transition.", author: "Linda H.", role: "Senior Executive", imgId: 1006 },
-        { text: "Finding work-life balance felt impossible. Sophie helped me set boundaries and prioritize my well-being without sacrificing my business goals. It's been a game-changer.", author: "Rachel B.", role: "Tech Startup Founder", imgId: 1016 },
-        { text: "Entering the job market was overwhelming. The coaching sessions gave me the confidence to network effectively, ace interviews, and land a job that I'm truly excited about.", author: "Megan S.", role: "Recent Graduate", imgId: 1019 },
+        { text: "My session with Sophie exceeded every expectation. In roughly three hours, she helped me break through emotional blocks rooted in my childhood and the challenges of being raised by boomer parents. Her insight, compassion and skill allowed me to release long-held patterns and step into a more empowered version of myself. I am deeply grateful.", author: "Sandra B.", role: "Financial Officer", imgId: 1027 },
+        { text: "My daughter visited Sophie for a session a few months ago,  the change we noticed in our daughter has been incredible. She actually smiled for the first time in months. She is a lot more confident and outgoing.", author: "Tracey M.", role: "Personal Support Worker", imgId: 1011 },
+        { text: "Thank you for the confidence. I still hear your voice in my head when I need support.", author: "Michael K.", role: "Engineer", imgId: 1005 },
+        { text: "I am rebuilding my life after a separation. Sophie gave me the confidence to move out of victimhood and enjoy life again. I will be forever grateful.", author: "Shirley H.", role: "Secretary", imgId: 1012 },
+        { text: "Before my session with Sophie, I second guessed every decision and felt small in my own life. Now I am standing taller, speaking up. My confidence isn’t just back, it’s stronger than it has ever been", author: "Anna D.", role: "Artist", imgId: 1025 },
+        { text: "I didn’t realize how much I had dimmed my light until I started working with Sophie. Today I trust myself again. I feel grounded, clear and unshakably confident.", author: "Selma F.", role: "Nurse", imgId: 1028 },
+        { text: "My RTT session with Sophie took me back to the moments that shaped me-why I kept myself small, why I chose the partners I did, and why I let their voices drown out my own. In that session, I finally understood my patterns, forgave myself and the people who created them, and reclaimed my inner voice. And standing up for myself now? It feels absolutely exhilarating.", author: "Andrea D.", role: "Fertility Specialist", imgId: 1035 },
       ];
       
       const testimonialsContainer = document.getElementById('testimonials-container');
