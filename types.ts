@@ -1,1 +1,0 @@
-// This file is unused as the application is running via static HTML in index.html.
