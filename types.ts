@@ -1,18 +1,1 @@
-export interface FAQItem {
-  question: string;
-  answer: string;
-}
-
-export interface Testimonial {
-  text: string;
-  author: string;
-  role: string;
-  imgId: number;
-}
-
-export interface ServiceItem {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  features: string[];
-}
+// This file is unused as the application is running via static HTML in index.html.
