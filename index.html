@@ -58,27 +58,601 @@
         right: 0;
         background: linear-gradient(to left, #E0F2FE, transparent);
       }
-      /* White background variation for services section fade if needed, though mostly used on colored bg */
       .scroller-fade-white::before {
         background: linear-gradient(to right, #ffffff, transparent);
       }
       .scroller-fade-white::after {
          background: linear-gradient(to left, #ffffff, transparent);
       }
+      /* Accordion Transitions */
+      .faq-content {
+        transition-property: max-height, opacity;
+        transition-duration: 500ms;
+        transition-timing-function: ease-in-out;
+      }
+      .fade-in {
+        animation: fadeIn 0.5s ease-in;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
     </style>
-  <script type="importmap">
+<script type="importmap">
 {
   "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
     "react": "https://esm.sh/react@^19.2.3",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
     "@google/genai": "https://esm.sh/@google/genai@^1.33.0"
   }
 }
 </script>
 </head>
-  <body class="bg-slate-50 font-sans text-secondary">
-    <div id="root"></div>
+  <body class="bg-slate-50 font-sans text-secondary relative">
+    
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+      <div class="container mx-auto flex justify-between items-center p-4">
+        <a href="#home" class="text-2xl font-serif text-primary-dark font-bold">
+          Activate Change Today
+        </a>
+        
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex items-center space-x-8">
+          <a href="#home" class="text-secondary hover:text-primary-dark duration-200 font-medium">Home</a>
+          <a href="#about" class="text-secondary hover:text-primary-dark duration-200 font-medium">About</a>
+          <a href="#services" class="text-secondary hover:text-primary-dark duration-200 font-medium">Services</a>
+          <a href="#faq" class="text-secondary hover:text-primary-dark duration-200 font-medium">FAQ</a>
+        </nav>
+        <a href="#contact" class="hidden lg:inline-block bg-accent text-white font-bold py-2 px-6 rounded-full hover:bg-amber-600 transition-colors duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+          Book a Session
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <div class="lg:hidden">
+          <button id="mobile-menu-btn" class="text-primary-dark focus:outline-none p-2" aria-label="Toggle menu">
+            <!-- Menu Icon -->
+            <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            <!-- X Icon (Hidden by default) -->
+            <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 hidden"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Dropdown -->
+      <div id="mobile-menu" class="hidden lg:hidden bg-white shadow-lg absolute w-full left-0 border-t border-gray-100">
+        <div class="pt-2 pb-4 space-y-1 px-4">
+          <a href="#home" class="mobile-link block py-3 px-3 text-secondary border-b border-gray-100 hover:bg-gray-50 rounded-md transition-colors">Home</a>
+          <a href="#about" class="mobile-link block py-3 px-3 text-secondary border-b border-gray-100 hover:bg-gray-50 rounded-md transition-colors">About</a>
+          <a href="#services" class="mobile-link block py-3 px-3 text-secondary border-b border-gray-100 hover:bg-gray-50 rounded-md transition-colors">Services</a>
+          <a href="#faq" class="mobile-link block py-3 px-3 text-secondary border-b border-gray-100 hover:bg-gray-50 rounded-md transition-colors">FAQ</a>
+          <a href="#contact" class="mobile-link block w-full text-center bg-accent text-white font-bold mt-4 py-3 px-3 rounded-md hover:bg-amber-600 transition-colors duration-300">
+            Book a Session
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section id="home" class="bg-primary-light overflow-hidden">
+        <div class="container mx-auto px-4 py-20 lg:py-32 grid lg:grid-cols-2 gap-12 items-center">
+          <div class="text-center lg:text-left z-10">
+            <h1 class="text-4xl lg:text-6xl font-serif font-bold text-primary-dark leading-tight">
+              Unlock the Confident, Powerful You.
+            </h1>
+            <p class="mt-6 text-lg text-secondary max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              It's time to move past self-doubt and step into your power. Whether you're navigating a life change, climbing the corporate ladder, or building your empire, I'm here to help you build the unshakable confidence to thrive.
+            </p>
+            <a href="#contact" class="mt-8 inline-block bg-accent text-white font-bold py-4 px-10 rounded-full hover:bg-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 text-lg">
+              Book a Free 30-Min Session
+            </a>
+          </div>
+          
+          <div class="relative">
+            <div class="relative w-full max-w-2xl mx-auto lg:max-w-none lg:mx-0 overflow-hidden rounded-xl shadow-2xl scroller-fade bg-white/50 p-2">
+              <div class="flex w-max animate-scroll hover:[animation-play-state:paused]">
+                <!-- Images duplicated for loop -->
+                <script>
+                  const heroImages = [43, 65, 177, 200, 326, 367, 433];
+                  const allHeroImages = [...heroImages, ...heroImages];
+                  allHeroImages.forEach(id => {
+                    document.write(`<img src="https://picsum.photos/id/${id}/800/600" alt="Coaching Moment" class="w-80 h-96 object-cover rounded-lg shadow-lg mr-6 transition-transform hover:scale-105 duration-300" />`);
+                  });
+                </script>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Overview -->
+      <div class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl lg:text-4xl font-serif font-bold text-primary-dark">How I Can Help You</h2>
+            <p class="mt-4 text-lg text-secondary max-w-3xl mx-auto">
+              I specialize in helping women just like you overcome unique challenges and build lasting confidence in all areas of life.
+            </p>
+          </div>
+          <div class="grid md:grid-cols-3 gap-8">
+            
+            <div class="bg-slate-50 p-8 rounded-lg shadow-md text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 group">
+              <div class="flex justify-center mb-6">
+                <div class="p-4 bg-primary-light rounded-full text-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+              </div>
+              <h3 class="text-2xl font-bold font-serif text-primary-dark mb-3">Reclaiming Your Power at Home</h3>
+              <p class="text-secondary mb-6">
+                Navigate life's major transitions like divorce, loss, or financial strain with renewed strength and a clear sense of self.
+              </p>
+              <a href="#services" class="inline-flex items-center text-primary font-bold hover:text-primary-dark transition">
+                Learn More <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-lg shadow-md text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 group">
+              <div class="flex justify-center mb-6">
+                <div class="p-4 bg-primary-light rounded-full text-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+              </div>
+              <h3 class="text-2xl font-bold font-serif text-primary-dark mb-3">Thriving in Your Corporate Career</h3>
+              <p class="text-secondary mb-6">
+                Break through barriers, command respect, and achieve the recognition you deserve in the professional world.
+              </p>
+              <a href="#services" class="inline-flex items-center text-primary font-bold hover:text-primary-dark transition">
+                Learn More <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-lg shadow-md text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 group">
+              <div class="flex justify-center mb-6">
+                <div class="p-4 bg-primary-light rounded-full text-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                </div>
+              </div>
+              <h3 class="text-2xl font-bold font-serif text-primary-dark mb-3">Leading with Edge as an Entrepreneur</h3>
+              <p class="text-secondary mb-6">
+                Sharpen your leadership skills, overcome business hurdles, and scale your vision with unwavering confidence.
+              </p>
+              <a href="#services" class="inline-flex items-center text-primary font-bold hover:text-primary-dark transition">
+                Learn More <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonials -->
+      <div class="py-20 bg-primary-light">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl lg:text-4xl font-serif font-bold text-primary-dark">What My Clients Are Saying</h2>
+            <p class="mt-4 text-lg text-secondary">Real stories from women who have transformed their lives.</p>
+          </div>
+          
+          <div class="relative max-w-7xl mx-auto overflow-hidden scroller-fade">
+            <div class="flex w-max animate-scroll-slow hover:[animation-play-state:paused] py-4" id="testimonials-container">
+              <!-- Rendered via JS loop below to keep HTML clean -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- About -->
+      <section id="about" class="bg-white py-16 sm:py-24">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <h1 class="text-4xl lg:text-5xl font-serif font-bold text-primary-dark">My Journey to Empowering Women</h1>
+            <p class="mt-4 text-lg text-secondary max-w-3xl mx-auto">
+              A little about me and why I'm so passionate about this work.
+            </p>
+          </div>
+
+          <div class="grid lg:grid-cols-5 gap-12 items-center">
+            <div class="lg:col-span-2">
+              <div class="relative">
+                <div class="absolute inset-0 bg-accent rounded-lg transform translate-x-3 translate-y-3"></div>
+                <img 
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  alt="Coach Sophie Ashley" 
+                  class="relative rounded-lg shadow-2xl object-cover w-full h-full aspect-[3/4] z-10"
+                />
+              </div>
+            </div>
+            
+            <div class="lg:col-span-3">
+              <h2 class="text-3xl font-serif text-primary-dark mb-6">Hello, I'm Sophie Ashley.</h2>
+              <div class="space-y-6 text-secondary text-lg leading-relaxed">
+                <p>
+                  I know what it’s like to feel stuck. For years, I navigated the demanding corporate world, feeling undervalued and unheard. I've also witnessed the silent struggles of friends and family rebuilding their lives after profound personal changes. I saw brilliant, capable women dim their own light because they'd lost touch with their inner strength.
+                </p>
+                <p>
+                  My own journey of rediscovering my confidence wasn't a straight line. It was filled with challenges, learning, and ultimately, a profound transformation. This experience ignited a passion in me: to create the support system I wish I'd had. I decided to channel my experiences and professional training into a career dedicated to helping other women find their voice, own their worth, and lead lives of purpose and fulfillment.
+                </p>
+                <p>
+                  As a certified coach, my approach is built on a foundation of empathy, trust, and proven strategies. I don’t offer one-size-fits-all solutions. Instead, I partner with you to uncover your unique strengths, dismantle the beliefs holding you back, and create a clear, actionable path toward the confident life you deserve.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-20 bg-primary-light p-10 rounded-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white opacity-20 rounded-full"></div>
+            <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-white opacity-20 rounded-full"></div>
+            
+            <h3 class="text-3xl font-serif text-primary-dark text-center mb-10 relative z-10">My Credentials & Commitment</h3>
+            <ul class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+              <li class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-accent mb-3"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                 <h4 class="font-bold text-lg text-primary-dark">Certified Professional Coach (CPC)</h4>
+                 <p class="text-sm text-secondary mt-1">Institute for Professional Excellence in Coaching (iPEC)</p>
+              </li>
+              <li class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-accent mb-3"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                 <h4 class="font-bold text-lg text-primary-dark">Energy Leadership™ Index Master</h4>
+                 <p class="text-sm text-secondary mt-1">iPEC Master Practitioner</p>
+              </li>
+              <li class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-accent mb-3"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                 <h4 class="font-bold text-lg text-primary-dark">ICF Member</h4>
+                 <p class="text-sm text-secondary mt-1">Adhering to the highest ethical standards</p>
+              </li>
+              <li class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-accent mb-3"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                 <h4 class="font-bold text-lg text-primary-dark">15+ Years Corporate Experience</h4>
+                 <p class="text-sm text-secondary mt-1">Leadership & Development Roles</p>
+              </li>
+              <li class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-accent mb-3"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                 <h4 class="font-bold text-lg text-primary-dark">B.A. in Psychology</h4>
+                 <p class="text-sm text-secondary mt-1">Understanding the science of human behavior</p>
+              </li>
+              <li class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-accent mb-3"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                 <h4 class="font-bold text-lg text-primary-dark">Continuous Education</h4>
+                 <p class="text-sm text-secondary mt-1">Committed to the latest coaching methodologies</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Service Details -->
+      <section id="services" class="py-16 sm:py-24 bg-slate-50">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <h1 class="text-4xl lg:text-5xl font-serif font-bold text-primary-dark">Your Path to Confidence</h1>
+            <p class="mt-4 text-lg text-secondary max-w-3xl mx-auto">
+              Tailored coaching packages designed to meet you where you are and guide you to where you want to be. Each program is a partnership to unlock your potential.
+            </p>
+          </div>
+
+          <div class="grid lg:grid-cols-3 gap-10">
+            <!-- Card 1 -->
+            <div class="bg-white p-8 rounded-xl shadow-xl flex flex-col h-full border-t-4 border-primary hover:-translate-y-2 transition-transform duration-300">
+              <div class="flex items-center mb-6">
+                <div class="bg-primary-light p-3 rounded-full mr-4 text-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <h3 class="text-xl font-serif font-bold text-primary-dark leading-tight">Reclaiming Your Power at Home</h3>
+              </div>
+              <p class="text-secondary mb-6 flex-grow">
+                Navigate life's major transitions like divorce, loss, or financial strain with renewed strength and a clear sense of self.
+              </p>
+              <ul class="space-y-4 mb-8">
+                <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accent flex-shrink-0 mt-1"><polyline points="20 6 9 17 4 12"/></svg><span class="ml-3 text-secondary text-sm">Rebuilding self-esteem after a major life event.</span></li>
+                <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accent flex-shrink-0 mt-1"><polyline points="20 6 9 17 4 12"/></svg><span class="ml-3 text-secondary text-sm">Developing resilience and coping strategies.</span></li>
+                <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accent flex-shrink-0 mt-1"><polyline points="20 6 9 17 4 12"/></svg><span class="ml-3 text-secondary text-sm">Setting healthy boundaries with family.</span></li>
+                <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accent flex-shrink-0 mt-1"><polyline points="20 6 9 17 4 12"/></svg><span class="ml-3 text-secondary text-sm">Creating a vision for your new chapter.</span></li>
+                <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accent flex-shrink-0 mt-1"><polyline points="20 6 9 17 4 12"/></svg><span class="ml-3 text-secondary text-sm">Rediscovering personal joy and purpose.</span></li>
+              </ul>
+              <a href="#contact" class="mt-auto w-full text-center bg-accent text-white font-bold py-3 px-6 rounded-full hover:bg-amber-600 transition-colors duration-300 shadow-md">
+                Start Your Transformation
+              </a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white p-8 rounded-xl shadow-xl flex flex-col h-full border-t-4 border-primary hover:-translate-y-2 transition-transform duration-300">
+              <div class="flex items-center mb-6">
+                <div class="bg-primary-light p-3 rounded-full mr-4 text-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+              </div>
+              <h3 class="text-xl font-serif font-bold text-primary-dark leading-tight">Thriving in Your Corporate Career</h3>
+              <p class="text-secondary mb-6 flex-grow">
+                Break through barriers, command respect, and achieve the recognition you deserve in the professional world.
+              </p>
+              <ul class="space-y-4 mb-8">
+                <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accent flex-shrink-0 mt-1"><polyline points="20 6 9 17 4 12"/></svg><span class="ml-3 text-secondary text-sm">Developing executive presence and assertive communication.</span></li>
+                <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accent flex-shrink-0 mt-1"><polyline points="20 6 9 17 4 12"/></svg><span class="ml-3 text-secondary text-sm">Overcoming imposter syndrome and self-doubt.</span></li>
+                <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accent flex-shrink-0 mt-1"><polyline points="20 6 9 17 4 12"/></svg><span class="ml-3 text-secondary text-sm">Navigating workplace politics with confidence.</span></li>
+                <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accent flex-shrink-0 mt-1"><polyline points="20 6 9 17 4 12"/></svg><span class="ml-3 text-secondary text-sm">Strategizing for promotions and leadership roles.</span></li>
+                <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accent flex-shrink-0 mt-1"><polyline points="20 6 9 17 4 12"/></svg><span class="ml-3 text-secondary text-sm">Building a powerful professional network.</span></li>
+              </ul>
+              <a href="#contact" class="mt-auto w-full text-center bg-accent text-white font-bold py-3 px-6 rounded-full hover:bg-amber-600 transition-colors duration-300 shadow-md">
+                Start Your Transformation
+              </a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white p-8 rounded-xl shadow-xl flex flex-col h-full border-t-4 border-primary hover:-translate-y-2 transition-transform duration-300">
+              <div class="flex items-center mb-6">
+                <div class="bg-primary-light p-3 rounded-full mr-4 text-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                </div>
+              </div>
+              <h3 class="text-xl font-serif font-bold text-primary-dark leading-tight">Leading with Edge as an Entrepreneur</h3>
+              <p class="text-secondary mb-6 flex-grow">
+                Sharpen your leadership skills, overcome business hurdles, and scale your vision with unwavering confidence.
+              </p>
+              <ul class="space-y-4 mb-8">
+                <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accent flex-shrink-0 mt-1"><polyline points="20 6 9 17 4 12"/></svg><span class="ml-3 text-secondary text-sm">Cultivating a resilient and decisive leadership mindset.</span></li>
+                <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accent flex-shrink-0 mt-1"><polyline points="20 6 9 17 4 12"/></svg><span class="ml-3 text-secondary text-sm">Mastering confident sales and negotiation techniques.</span></li>
+                <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accent flex-shrink-0 mt-1"><polyline points="20 6 9 17 4 12"/></svg><span class="ml-3 text-secondary text-sm">Inspiring and leading your team effectively.</span></li>
+                <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accent flex-shrink-0 mt-1"><polyline points="20 6 9 17 4 12"/></svg><span class="ml-3 text-secondary text-sm">Managing stress and preventing burnout.</span></li>
+                <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-accent flex-shrink-0 mt-1"><polyline points="20 6 9 17 4 12"/></svg><span class="ml-3 text-secondary text-sm">Embracing risk and making bold business moves.</span></li>
+              </ul>
+              <a href="#contact" class="mt-auto w-full text-center bg-accent text-white font-bold py-3 px-6 rounded-full hover:bg-amber-600 transition-colors duration-300 shadow-md">
+                Start Your Transformation
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <section id="faq" class="py-16 sm:py-24 bg-white">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <h1 class="text-4xl lg:text-5xl font-serif font-bold text-primary-dark">Frequently Asked Questions</h1>
+            <p class="mt-4 text-lg text-secondary max-w-3xl mx-auto">
+              Find answers to common questions about confidence coaching and how it works.
+            </p>
+          </div>
+
+          <div class="max-w-4xl mx-auto bg-slate-50 rounded-lg shadow-md overflow-hidden border border-slate-100" id="faq-container">
+            <!-- FAQ items injected via JS for cleaner HTML -->
+            <script>
+              const faqData = [
+                { question: "Who is confidence coaching for?", answer: "Confidence coaching is for any woman who feels she's not living up to her full potential due to self-doubt, past experiences, or challenging life transitions. Whether you're navigating changes at home, striving for more in your career, or leading a business, this coaching provides the tools to build unshakeable self-belief." },
+                { question: "What can I expect from a coaching session?", answer: "Our sessions are a safe, confidential space for you to explore your challenges and aspirations. We'll work together to identify limiting beliefs, set meaningful goals, and develop practical strategies. Expect empathetic listening, powerful questions, and actionable steps to move you forward. It's a collaborative partnership focused entirely on your growth." },
+                { question: "How is coaching different from therapy?", answer: "While both are valuable, therapy often focuses on healing past trauma and treating clinical conditions. Coaching is forward-focused, centered on setting and achieving future goals. We work on closing the gap between where you are now and where you want to be, empowering you to create the life you desire." },
+                { question: "How long does the coaching process take?", answer: "The duration varies for each individual. Most clients experience significant shifts within a 3-month period. We offer different packages to suit your needs, and progress is often noticeable after just a few sessions. The goal is to equip you with sustainable skills, not to create long-term dependency." },
+                { question: "Is there a free consultation?", answer: "Absolutely. I offer a complimentary 30-minute discovery session. This is a chance for us to connect, discuss your goals, and see if we're a good fit for each other. There's no obligation, just an open conversation to explore the possibilities." },
+              ];
+
+              faqData.forEach((item, index) => {
+                document.write(`
+                  <div class="faq-item border-b border-slate-200 last:border-0">
+                    <button class="w-full flex justify-between items-center text-left py-5 px-6 focus:outline-none hover:bg-slate-100 transition-colors">
+                      <h3 class="text-lg font-semibold text-primary-dark pr-4">${item.question}</h3>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon w-6 h-6 text-primary transform transition-transform duration-300"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-content overflow-hidden max-h-0 opacity-0">
+                      <div class="px-6 pb-5 text-secondary leading-relaxed">
+                        <p>${item.answer}</p>
+                      </div>
+                    </div>
+                  </div>
+                `);
+              });
+            </script>
+          </div>
+
+          <div class="mt-20 text-center">
+            <h2 class="text-2xl font-serif text-primary-dark mb-4">Still have questions?</h2>
+            <p className="text-secondary text-lg max-w-xl mx-auto mb-6">
+              I'd love to hear from you. Reach out, and let's start a conversation.
+            </p>
+            <a href="#contact" class="inline-block bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-amber-600 transition-colors duration-300 shadow-lg">
+              Contact Me Directly
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="container mx-auto py-12 px-4 flex justify-center mb-12">
+        <div class="bg-primary-light p-8 md:p-12 rounded-2xl shadow-xl w-full max-w-2xl">
+          <div id="contact-form-container" class="transition-opacity duration-300 ease-in opacity-100">
+            <h3 class="text-3xl font-serif text-primary-dark text-center mb-4 font-bold">Get In Touch</h3>
+            <p class="text-center text-secondary mb-8">
+              Have a question or want to book a session? Send me a message!
+            </p>
+            <form id="contact-form" class="space-y-6">
+              <div>
+                <label for="name" class="sr-only">Name</label>
+                <input 
+                  type="text" 
+                  name="name" 
+                  id="name" 
+                  placeholder="Your Name" 
+                  required 
+                  class="w-full px-5 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition text-gray-800 placeholder-gray-400 bg-white"
+                />
+              </div>
+              <div>
+                <label for="email" class="sr-only">Email</label>
+                <input 
+                  type="email" 
+                  name="email" 
+                  id="email" 
+                  placeholder="Your Email" 
+                  required 
+                  class="w-full px-5 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition text-gray-800 placeholder-gray-400 bg-white"
+                />
+              </div>
+              <div>
+                <label for="message" class="sr-only">Message</label>
+                <textarea 
+                  name="message" 
+                  id="message" 
+                  rows="4" 
+                  placeholder="Your Message" 
+                  required 
+                  class="w-full px-5 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition text-gray-800 placeholder-gray-400 bg-white"
+                ></textarea>
+              </div>
+              <button 
+                type="submit" 
+                class="w-full bg-accent text-white font-bold py-4 px-6 rounded-full hover:bg-amber-600 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl hover:-translate-y-1"
+              >
+                Send Message <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 w-5 h-5"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              </button>
+            </form>
+          </div>
+          
+          <div id="contact-success" class="text-center py-16 fade-in hidden">
+            <div class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <h3 class="text-2xl font-bold text-primary-dark mb-2">Thank You!</h3>
+            <p class="text-secondary text-lg">Your message has been sent. I will get back to you shortly.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary-dark text-white">
+      <div class="bg-slate-900 border-t border-slate-800">
+        <div class="container mx-auto py-8 px-4 flex flex-col md:flex-row justify-between items-center text-center">
+          <p class="text-slate-400">&copy; 2024 Activate Change Today. All Rights Reserved.</p>
+          <div class="flex space-x-6 mt-4 md:mt-0">
+            <a href="#" class="text-slate-400 hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" class="text-slate-400 hover:text-white transition-colors">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+      // Testimonial Renderer
+      const testimonialData = [
+        { text: "Working with her was life-changing. I rediscovered my strength after my divorce and now feel more in control and optimistic about my future than ever before.", author: "Sarah L.", role: "Recently Divorced", imgId: 1027 },
+        { text: "I was consistently overlooked for promotions. This coaching helped me find my voice, assert my value, and finally get the recognition and respect I deserve at work.", author: "Jennifer M.", role: "Corporate Manager", imgId: 1011 },
+        { text: "As an entrepreneur, I struggled with imposter syndrome. I now have the confidence to lead my team, make bold decisions, and grow my business with conviction.", author: "Emily R.", role: "Business Owner", imgId: 1012 },
+        { text: "Sophie's coaching was instrumental in helping me develop my executive presence. I now lead meetings with confidence and have a clearer path for my career growth.", author: "Maria K.", role: "Marketing Director", imgId: 1025 },
+        { text: "After a 5-year career break, my confidence was at an all-time low. Sophie helped me recognize my skills and translate them into a new career. I felt supported and understood.", author: "Jessica P.", role: "Return-to-Work Mom", imgId: 1028 },
+        { text: "As a creative, self-doubt can be crippling. This coaching gave me practical tools to overcome creative blocks and value my work, which has directly led to better clients.", author: "Chloe T.", role: "Graphic Designer", imgId: 1014 },
+        { text: "I needed to refine my leadership style. Sophie's guidance was insightful and direct, helping me to communicate more effectively and inspire my team during a critical transition.", author: "Linda H.", role: "Senior Executive", imgId: 1006 },
+        { text: "Finding work-life balance felt impossible. Sophie helped me set boundaries and prioritize my well-being without sacrificing my business goals. It's been a game-changer.", author: "Rachel B.", role: "Tech Startup Founder", imgId: 1016 },
+        { text: "Entering the job market was overwhelming. The coaching sessions gave me the confidence to network effectively, ace interviews, and land a job that I'm truly excited about.", author: "Megan S.", role: "Recent Graduate", imgId: 1019 },
+      ];
+      
+      const testimonialsContainer = document.getElementById('testimonials-container');
+      const doubledTestimonials = [...testimonialData, ...testimonialData];
+      
+      doubledTestimonials.forEach(t => {
+        const tDiv = document.createElement('div');
+        tDiv.className = "w-96 flex-shrink-0 px-4";
+        tDiv.innerHTML = `
+          <div class="bg-white p-8 rounded-lg shadow-lg h-full flex flex-col min-h-[300px] hover:shadow-xl transition-shadow duration-300">
+            <p class="text-secondary italic flex-grow text-lg leading-relaxed">"${t.text}"</p>
+            <div class="flex items-center mt-6 pt-6 border-t border-slate-100">
+              <img 
+                src="https://picsum.photos/id/${t.imgId}/200/200" 
+                alt="Profile of ${t.author}" 
+                class="w-14 h-14 rounded-full mr-4 object-cover border-2 border-primary-light"
+              />
+              <div>
+                <p class="font-bold text-primary-dark">${t.author}</p>
+                <p class="text-sm text-slate-500 font-medium">${t.role}</p>
+              </div>
+            </div>
+          </div>
+        `;
+        testimonialsContainer.appendChild(tDiv);
+      });
+
+      // Mobile Menu Logic
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const iconMenu = document.getElementById('icon-menu');
+      const iconClose = document.getElementById('icon-close');
+      const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+
+      function toggleMenu() {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          iconMenu.classList.add('hidden');
+          iconClose.classList.remove('hidden');
+        } else {
+          mobileMenu.classList.add('hidden');
+          iconMenu.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        }
+      }
+
+      menuBtn.addEventListener('click', toggleMenu);
+      mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+      // FAQ Accordion Logic
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach((item, index) => {
+        const btn = item.querySelector('button');
+        const content = item.querySelector('.faq-content');
+        const icon = item.querySelector('.faq-icon');
+
+        btn.addEventListener('click', () => {
+          const isOpen = !content.classList.contains('max-h-0');
+          
+          // Close all
+          faqItems.forEach(i => {
+            const c = i.querySelector('.faq-content');
+            const ic = i.querySelector('.faq-icon');
+            c.classList.add('max-h-0', 'opacity-0');
+            c.classList.remove('max-h-96', 'opacity-100');
+            ic.classList.remove('rotate-180');
+          });
+
+          // Open clicked if not already open
+          if (!isOpen) {
+            content.classList.remove('max-h-0', 'opacity-0');
+            content.classList.add('max-h-96', 'opacity-100');
+            icon.classList.add('rotate-180');
+          }
+        });
+      });
+
+      // Contact Form Logic
+      const contactForm = document.getElementById('contact-form');
+      const formContainer = document.getElementById('contact-form-container');
+      const successMsg = document.getElementById('contact-success');
+
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Simulate sending
+        const btn = contactForm.querySelector('button');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = 'Sending...';
+        btn.disabled = true;
+
+        setTimeout(() => {
+          formContainer.classList.add('hidden');
+          successMsg.classList.remove('hidden');
+          
+          // Reset after 5 seconds
+          setTimeout(() => {
+            contactForm.reset();
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+            successMsg.classList.add('hidden');
+            formContainer.classList.remove('hidden');
+          }, 5000);
+        }, 600);
+      });
+    </script>
   </body>
 </html>

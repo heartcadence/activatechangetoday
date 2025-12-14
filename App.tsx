@@ -8,7 +8,6 @@ import ServiceDetails from './components/ServiceDetails';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import AICoach from './components/AICoach';
 
 const App: React.FC = () => {
   return (
@@ -24,7 +23,6 @@ const App: React.FC = () => {
         <Contact />
       </main>
       <Footer />
-      <AICoach />
     </div>
   );
 };
