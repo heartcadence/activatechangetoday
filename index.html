@@ -151,7 +151,8 @@
                   const heroImages = [43, 65, 177, 200, 326, 367, 433];
                   const allHeroImages = [...heroImages, ...heroImages];
                   allHeroImages.forEach(id => {
-                    document.write(`<img src="https://picsum.photos/id/${id}/800/600" alt="Coaching Moment" class="w-52 h-64 sm:w-60 sm:h-72 md:w-80 md:h-96 object-cover rounded-lg shadow-lg mr-4 md:mr-6 transition-transform hover:scale-105 duration-300" />`);
+                    // Added width/height for CLS prevention and decoding="async" for performance
+                    document.write(`<img src="https://picsum.photos/id/${id}/800/1000" width="800" height="1000" decoding="async" alt="Coaching Moment" class="w-52 h-64 sm:w-60 sm:h-72 md:w-80 md:h-96 object-cover rounded-lg shadow-lg mr-4 md:mr-6 transition-transform hover:scale-105 duration-300" />`);
                   });
                 </script>
               </div>
