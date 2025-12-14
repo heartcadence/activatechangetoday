@@ -127,28 +127,30 @@
     <main>
       <!-- Hero -->
       <section id="home" class="bg-primary-light overflow-hidden">
-        <div class="container mx-auto px-4 py-20 lg:py-32 grid lg:grid-cols-2 gap-12 items-center">
-          <div class="text-center lg:text-left z-10">
+        <div class="container mx-auto px-4 py-12 lg:py-32 grid lg:grid-cols-2 gap-12 items-center">
+          <div class="text-center lg:text-left z-10 max-w-full">
             <h1 class="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-primary-dark leading-tight break-words">
               Unlock the Confident, Powerful You.
             </h1>
-            <p class="mt-6 text-lg text-secondary max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            <p class="mt-6 text-base md:text-lg text-secondary max-w-xl mx-auto lg:mx-0 leading-relaxed">
               It's time to move past self-doubt and step into your power. Whether you're navigating a life change, climbing the corporate ladder, or building your empire, I'm here to help you build the unshakable confidence to thrive.
             </p>
-            <a href="#contact" class="mt-8 inline-block bg-accent text-white font-bold py-4 px-10 rounded-full hover:bg-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 text-lg">
-              Book a Free 30-Min Session
-            </a>
+            <div class="mt-8 flex justify-center lg:justify-start">
+              <a href="#contact" class="w-full sm:w-auto bg-accent text-white font-bold py-3 px-6 md:py-4 md:px-10 rounded-full hover:bg-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 text-base md:text-lg">
+                Book a Free 30-Min Session
+              </a>
+            </div>
           </div>
           
-          <div class="relative">
-            <div class="relative w-full max-w-2xl mx-auto lg:max-w-none lg:mx-0 overflow-hidden rounded-xl shadow-2xl scroller-fade bg-white/50 p-2">
-              <div class="flex w-max animate-scroll hover:[animation-play-state:paused]">
+          <div class="relative w-full">
+            <div class="relative w-full max-w-2xl mx-auto lg:max-w-none lg:mx-0 overflow-hidden scroller-fade">
+              <div class="flex w-max animate-scroll hover:[animation-play-state:paused] py-4">
                 <!-- Images duplicated for loop -->
                 <script>
                   const heroImages = [43, 65, 177, 200, 326, 367, 433];
                   const allHeroImages = [...heroImages, ...heroImages];
                   allHeroImages.forEach(id => {
-                    document.write(`<img src="https://picsum.photos/id/${id}/800/600" alt="Coaching Moment" class="w-80 h-96 object-cover rounded-lg shadow-lg mr-6 transition-transform hover:scale-105 duration-300" />`);
+                    document.write(`<img src="https://picsum.photos/id/${id}/800/600" alt="Coaching Moment" class="w-60 h-72 md:w-80 md:h-96 object-cover rounded-lg shadow-lg mr-4 md:mr-6 transition-transform hover:scale-105 duration-300" />`);
                   });
                 </script>
               </div>
@@ -158,16 +160,16 @@
       </section>
 
       <!-- About (Moved after Hero) -->
-      <section id="about" class="bg-white py-16 sm:py-24">
+      <section id="about" class="bg-white py-12 sm:py-24">
         <div class="container mx-auto px-4">
-          <div class="text-center mb-16">
+          <div class="text-center mb-12 lg:mb-16">
             <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-primary-dark">My Journey to Empowering Women</h1>
-            <p class="mt-4 text-lg text-secondary max-w-3xl mx-auto">
+            <p class="mt-4 text-base md:text-lg text-secondary max-w-3xl mx-auto">
               A little about me and why I'm so passionate about this work.
             </p>
           </div>
 
-          <div class="grid lg:grid-cols-5 gap-12">
+          <div class="grid lg:grid-cols-5 gap-8 lg:gap-12">
             <div class="lg:col-span-2 relative">
               <div class="relative h-full w-full">
                 <div class="absolute inset-0 bg-primary rounded-lg transform translate-x-3 translate-y-3"></div>
@@ -179,9 +181,9 @@
               </div>
             </div>
             
-            <div class="lg:col-span-3 flex flex-col justify-center">
+            <div class="lg:col-span-3 flex flex-col justify-center mt-8 lg:mt-0">
               <h2 class="text-2xl md:text-3xl font-serif text-primary-dark mb-6">Hello, I'm Sophie Ashley.</h2>
-              <div class="space-y-6 text-secondary text-lg leading-relaxed">
+              <div class="space-y-6 text-secondary text-base md:text-lg leading-relaxed">
                 <p>
                   I know what it’s like to feel stuck. For years, I navigated the demanding corporate world, feeling undervalued and unheard. I've also witnessed the silent struggles of friends and family rebuilding their lives after profound personal changes. I saw brilliant, capable women dim their own light because they'd lost touch with their inner strength.
                 </p>
@@ -195,13 +197,13 @@
             </div>
           </div>
 
-          <div class="mt-20 bg-primary-light p-10 rounded-2xl relative overflow-hidden shadow-sm">
+          <div class="mt-16 lg:mt-20 bg-primary-light p-6 md:p-10 rounded-2xl relative overflow-hidden shadow-sm">
             <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white opacity-50 rounded-full"></div>
             <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-white opacity-50 rounded-full"></div>
             
-            <h3 class="text-3xl font-serif text-primary-dark text-center mb-10 relative z-10">My Credentials & Commitment</h3>
+            <h3 class="text-2xl md:text-3xl font-serif text-primary-dark text-center mb-10 relative z-10">My Credentials & Commitment</h3>
             <div class="flex flex-wrap justify-center gap-6 relative z-10">
-              <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[32%] bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group flex flex-col items-start border border-slate-100">
+              <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[32%] bg-white p-6 md:p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group flex flex-col items-start border border-slate-100">
                  <div class="mb-4 text-primary">
                    <!-- Lightning Bolt Icon for Rapid Transformational -->
                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
@@ -209,7 +211,7 @@
                  <h4 class="font-bold text-lg text-primary-dark mb-2 group-hover:text-primary transition-colors">Rapid Transformational Practitioner</h4>
                  <p class="text-sm text-secondary leading-relaxed">Rapid Transformational Therapy School (RTT®)</p>
               </div>
-              <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[32%] bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group flex flex-col items-start border border-slate-100">
+              <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[32%] bg-white p-6 md:p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group flex flex-col items-start border border-slate-100">
                  <div class="mb-4 text-primary">
                    <!-- Activity Icon for Health and Sports -->
                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
@@ -217,7 +219,7 @@
                  <h4 class="font-bold text-lg text-primary-dark mb-2 group-hover:text-primary transition-colors">Health and Sports Therapist</h4>
                  <p class="text-sm text-secondary leading-relaxed">Canadian Athletic Therapists Association (CATA).</p>
               </div>
-              <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[32%] bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group flex flex-col items-start border border-slate-100">
+              <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[32%] bg-white p-6 md:p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group flex flex-col items-start border border-slate-100">
                  <div class="mb-4 text-primary">
                    <!-- Shield Icon for Trauma Informed -->
                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -225,7 +227,7 @@
                  <h4 class="font-bold text-lg text-primary-dark mb-2 group-hover:text-primary transition-colors">Trauma-Informed Coaching Certification</h4>
                  <p class="text-sm text-secondary leading-relaxed">International Coaching Federation (ICF)</p>
               </div>
-              <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[32%] bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group flex flex-col items-start border border-slate-100">
+              <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[32%] bg-white p-6 md:p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group flex flex-col items-start border border-slate-100">
                  <div class="mb-4 text-primary">
                    <!-- Heart Icon for Emotion Focused -->
                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
@@ -233,7 +235,7 @@
                  <h4 class="font-bold text-lg text-primary-dark mb-2 group-hover:text-primary transition-colors">Emotion-Focused Therapy Level 2</h4>
                  <p class="text-sm text-secondary leading-relaxed">International Society for Emotion Focused Therapy (ISEFT)</p>
               </div>
-              <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[32%] bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group flex flex-col items-start border border-slate-100">
+              <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[32%] bg-white p-6 md:p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group flex flex-col items-start border border-slate-100">
                  <div class="mb-4 text-primary">
                    <!-- Leaf Icon for Nutrition -->
                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.77 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
@@ -251,7 +253,7 @@
         <div class="container mx-auto px-4">
           <div class="text-center mb-16">
             <h1 class="text-3xl md:text-5xl lg:text-5xl font-serif font-bold text-primary-dark">Signature Coaching Programs</h1>
-            <p class="mt-4 text-lg text-secondary max-w-3xl mx-auto">
+            <p class="mt-4 text-base md:text-lg text-secondary max-w-3xl mx-auto">
               Tailored coaching packages designed to meet you where you are and guide you to where you want to be. Each program is a partnership to unlock your potential.
             </p>
           </div>
@@ -265,7 +267,7 @@
                 </div>
                 <h3 class="text-xl font-serif font-bold text-primary-dark leading-tight">Reclaiming Your Power</h3>
               </div>
-              <p class="text-secondary mb-6 flex-grow">
+              <p class="text-secondary mb-6 flex-grow text-base md:text-lg">
                 Navigate life's major transitions like divorce, loss, or financial strain with renewed strength and a clear sense of self.
               </p>
               <ul class="space-y-4 mb-8">
@@ -288,7 +290,7 @@
                 </div>
                 <h3 class="text-xl font-serif font-bold text-primary-dark leading-tight">Corporate Career Mastery</h3>
               </div>
-              <p class="text-secondary mb-6 flex-grow">
+              <p class="text-secondary mb-6 flex-grow text-base md:text-lg">
                 Break through barriers, command respect, and achieve the recognition you deserve in the professional world.
               </p>
               <ul class="space-y-4 mb-8">
@@ -311,7 +313,7 @@
                 </div>
                 <h3 class="text-xl font-serif font-bold text-primary-dark leading-tight">Entrepreneurial Leadership</h3>
               </div>
-              <p class="text-secondary mb-6 flex-grow">
+              <p class="text-secondary mb-6 flex-grow text-base md:text-lg">
                 Sharpen your leadership skills, overcome business hurdles, and scale your vision with unwavering confidence.
               </p>
               <ul class="space-y-4 mb-8">
@@ -335,7 +337,7 @@
         <div class="container mx-auto px-4">
           <div class="text-center mb-12">
             <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary-dark">What My Clients Are Saying</h2>
-            <p class="mt-4 text-lg text-secondary">Real stories from women who have transformed their lives.</p>
+            <p class="mt-4 text-base md:text-lg text-secondary">Real stories from women who have transformed their lives.</p>
           </div>
           
           <div class="relative max-w-7xl mx-auto overflow-hidden scroller-fade">
@@ -351,7 +353,7 @@
         <div class="container mx-auto px-4">
           <div class="text-center mb-16">
             <h1 class="text-3xl md:text-5xl lg:text-5xl font-serif font-bold text-primary-dark">Frequently Asked Questions</h1>
-            <p class="mt-4 text-lg text-secondary max-w-3xl mx-auto">
+            <p class="mt-4 text-base md:text-lg text-secondary max-w-3xl mx-auto">
               Find answers to common questions about confidence coaching and how it works.
             </p>
           </div>
