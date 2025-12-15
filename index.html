@@ -86,8 +86,8 @@
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 z-50">
       <div class="container mx-auto flex justify-between items-center p-4">
-        <a href="#home" class="flex items-center gap-3 group">
-          <img src="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/logo.webp" alt="ACT Logo" class="h-20 w-auto md:h-24 object-contain" />
+        <a href="#home" class="flex items-center gap-1 group">
+          <img src="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/logo.webp" alt="ACT Logo" class="h-32 w-auto md:h-40 object-contain" />
           <span class="text-xl md:text-2xl font-serif text-primary-dark font-bold group-hover:text-primary transition-colors">Activate Change Today</span>
         </a>
         
@@ -359,73 +359,6 @@
               </a>
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      <!-- Testimonials (Moved after Services) -->
-      <div class="py-20 bg-primary-light">
-        <div class="container mx-auto px-4">
-          <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary-dark">What My Clients Are Saying</h2>
-            <p class="mt-4 text-base md:text-lg text-secondary">Real stories from women who have transformed their lives.</p>
-          </div>
-          
-          <div class="relative max-w-7xl mx-auto overflow-hidden scroller-fade">
-            <div class="flex w-max animate-scroll-slow hover:[animation-play-state:paused] py-4" id="testimonials-container">
-              <!-- Rendered via JS loop below to keep HTML clean -->
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- FAQ -->
-      <section id="faq" class="py-16 sm:py-24 bg-white">
-        <div class="container mx-auto px-4">
-          <div class="text-center mb-16">
-            <h1 class="text-3xl md:text-5xl lg:text-5xl font-serif font-bold text-primary-dark">Frequently Asked Questions</h1>
-            <p class="mt-4 text-base md:text-lg text-secondary max-w-3xl mx-auto">
-              Find answers to common questions about confidence coaching and how it works.
-            </p>
-          </div>
-
-          <div class="max-w-4xl mx-auto bg-slate-50 rounded-lg shadow-md overflow-hidden border border-slate-100" id="faq-container">
-            <!-- FAQ items injected via JS for cleaner HTML -->
-            <script>
-              const faqData = [
-                { question: "Who is confidence coaching for?", answer: "Confidence coaching is for any woman who feels she's not living up to her full potential due to self-doubt, past experiences, or challenging life transitions. Whether you're navigating changes at home, striving for more in your career, or leading a business, this coaching provides the tools to build unshakeable self-belief." },
-                { question: "What can I expect from a coaching session?", answer: "Our sessions are a safe, confidential space for you to explore your challenges and aspirations. We'll work together to identify limiting beliefs, set meaningful goals, and develop practical strategies. Expect empathetic listening, powerful questions, and actionable steps to move you forward. It's a collaborative partnership focused entirely on your growth." },
-                { question: "How is coaching different from therapy?", answer: "While both are valuable, therapy often focuses on healing past trauma and treating clinical conditions. Coaching is forward-focused, centered on setting and achieving future goals. We work on closing the gap between where you are now and where you want to be, empowering you to create the life you desire." },
-                { question: "How long does the coaching process take?", answer: "The duration varies for each individual. Most clients experience significant shifts within a 3-month period. We offer different packages to suit your needs, and progress is often noticeable after just a few sessions. The goal is to equip you with sustainable skills, not to create long-term dependency." },
-                { question: "Is there a free consultation?", answer: "Absolutely. I offer a complimentary 30-minute discovery session. This is a chance for us to connect, discuss your goals, and see if we're a good fit for each other. There's no obligation, just an open conversation to explore the possibilities." },
-              ];
-
-              faqData.forEach((item, index) => {
-                document.write(`
-                  <div class="faq-item border-b border-slate-200 last:border-0">
-                    <button class="w-full flex justify-between items-center text-left py-5 px-6 focus:outline-none hover:bg-slate-100 transition-colors">
-                      <h3 class="text-lg font-semibold text-primary-dark pr-4">${item.question}</h3>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon w-6 h-6 text-primary transform transition-transform duration-300"><path d="m6 9 6 6 6-6"/></svg>
-                    </button>
-                    <div class="faq-content overflow-hidden max-h-0 opacity-0">
-                      <div class="px-6 pb-5 text-secondary leading-relaxed">
-                        <p>${item.answer}</p>
-                      </div>
-                    </div>
-                  </div>
-                `);
-              });
-            </script>
-          </div>
-
-          <div class="mt-20 text-center">
-            <h2 class="text-2xl font-serif text-primary-dark mb-4">Still have questions?</h2>
-            <p className="text-secondary text-lg max-w-xl mx-auto mb-6">
-              I'd love to hear from you. Reach out, and let's start a conversation.
-            </p>
-            <a href="#contact" class="inline-block bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-amber-600 transition-colors duration-300 shadow-lg">
-              Contact Me Directly
-            </a>
           </div>
         </div>
       </section>
