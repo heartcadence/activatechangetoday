@@ -68,9 +68,10 @@
       }
       /* Accordion Transitions */
       .faq-content {
-        transition-property: max-height, opacity;
-        transition-duration: 500ms;
-        transition-timing-function: ease-in-out;
+        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
       }
       .fade-in {
         animation: fadeIn 0.5s ease-in;
@@ -248,7 +249,7 @@
                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
                  </div>
                  <h4 class="font-bold text-lg text-primary-dark mb-2 group-hover:text-primary transition-colors">Health and Sports Practitioner</h4>
-                 <p class="text-sm text-secondary leading-relaxed">Canadian Athletic Therapists Association (CATA).</p>
+                 <p class="text-sm text-secondary leading-relaxed">International Health and Sports Therapy Association</p>
               </div>
               <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[32%] bg-white p-6 md:p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group flex flex-col items-start border border-slate-100">
                  <div class="mb-4 text-primary">
@@ -256,14 +257,14 @@
                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                  </div>
                  <h4 class="font-bold text-lg text-primary-dark mb-2 group-hover:text-primary transition-colors">Trauma-Informed Coaching Certification</h4>
-                 <p class="text-sm text-secondary leading-relaxed">International Coaching Federation (ICF)</p>
+                 <p class="text-sm text-secondary leading-relaxed">Centre For Healing</p>
               </div>
               <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[32%] bg-white p-6 md:p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group flex flex-col items-start border border-slate-100">
                  <div class="mb-4 text-primary">
                    <!-- Heart Icon for Emotion Focused -->
                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
                  </div>
-                 <h4 class="font-bold text-lg text-primary-dark mb-2 group-hover:text-primary transition-colors">Emotion-Focused Therapy Level 2</h4>
+                 <h4 class="font-bold text-lg text-primary-dark mb-2 group-hover:text-primary transition-colors">Emotional Freedom Technique Level 2</h4>
                  <p class="text-sm text-secondary leading-relaxed">International Society for Emotion Focused Therapy (ISEFT)</p>
               </div>
               <div class="w-full md:w-[calc(50%-0.75rem)] lg:w-[32%] bg-white p-6 md:p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group flex flex-col items-start border border-slate-100">
@@ -363,6 +364,106 @@
         </div>
       </section>
 
+      <!-- FAQ Section -->
+      <section id="faq" class="py-16 sm:py-24 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+          <div class="text-center mb-12 lg:mb-16">
+            <h1 class="text-3xl md:text-5xl font-serif font-bold text-primary-dark">Frequently Asked Questions</h1>
+            <p class="mt-4 text-base md:text-lg text-secondary max-w-2xl mx-auto">
+              Clarifying the path to your transformation.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            
+            <div class="faq-item bg-slate-50 rounded-xl overflow-hidden shadow-sm border border-slate-100">
+              <button class="w-full text-left p-6 flex justify-between items-center focus:outline-none hover:bg-slate-100 transition-colors duration-200">
+                <span class="font-bold text-lg md:text-xl text-primary-dark pr-8">What is Rapid Transformational Therapy (RTT®)?</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon w-6 h-6 text-primary flex-shrink-0 transition-transform duration-500"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-content">
+                <div class="p-6 pt-0 text-secondary leading-relaxed border-t border-slate-100/50">
+                  RTT® is a pioneering hybrid therapy that combines the most effective principles of Hypnotherapy, NLP (Neuro-Linguistic Programming), CBT (Cognitive Behavioral Therapy), and Neuroscience. It is designed to rapidly identify the root cause of issues and rewire the subconscious mind for lasting, transformative change—often in as little as 1 to 3 sessions.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item bg-slate-50 rounded-xl overflow-hidden shadow-sm border border-slate-100">
+              <button class="w-full text-left p-6 flex justify-between items-center focus:outline-none hover:bg-slate-100 transition-colors duration-200">
+                <span class="font-bold text-lg md:text-xl text-primary-dark pr-8">How do I know if this coaching is right for me?</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon w-6 h-6 text-primary flex-shrink-0 transition-transform duration-500"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-content">
+                <div class="p-6 pt-0 text-secondary leading-relaxed border-t border-slate-100/50">
+                  My programs are best suited for people who are ready to take responsibility for their lives and are committed to doing the work required for change. If you feel stuck, undervalued, or are facing a major transition and want to move forward with confidence and clarity, this is for you. The best way to be sure is to book a free discovery call where we can discuss your specific situation.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item bg-slate-50 rounded-xl overflow-hidden shadow-sm border border-slate-100">
+              <button class="w-full text-left p-6 flex justify-between items-center focus:outline-none hover:bg-slate-100 transition-colors duration-200">
+                <span class="font-bold text-lg md:text-xl text-primary-dark pr-8">Can you help with physical issues as well as emotional ones?</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon w-6 h-6 text-primary flex-shrink-0 transition-transform duration-500"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-content">
+                <div class="p-6 pt-0 text-secondary leading-relaxed border-t border-slate-100/50">
+                  Yes. The mind and body are intrinsically connected. Emotional stress and unresolved trauma often manifest as physical symptoms. As a Health and Sports Practitioner, I can help you explore the emotional roots of physical issues to support your overall well-being.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item bg-slate-50 rounded-xl overflow-hidden shadow-sm border border-slate-100">
+              <button class="w-full text-left p-6 flex justify-between items-center focus:outline-none hover:bg-slate-100 transition-colors duration-200">
+                <span class="font-bold text-lg md:text-xl text-primary-dark pr-8">Can I be hypnotized?</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon w-6 h-6 text-primary flex-shrink-0 transition-transform duration-500"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-content">
+                <div class="p-6 pt-0 text-secondary leading-relaxed border-t border-slate-100/50">
+                  Yes, almost anyone can be hypnotized as long as they want to be. It is a natural state of mind that we drift in and out of daily, like when you're driving on a familiar route or engrossed in a movie. You cannot be hypnotized against your will.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item bg-slate-50 rounded-xl overflow-hidden shadow-sm border border-slate-100">
+              <button class="w-full text-left p-6 flex justify-between items-center focus:outline-none hover:bg-slate-100 transition-colors duration-200">
+                <span class="font-bold text-lg md:text-xl text-primary-dark pr-8">Will I go to sleep?</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon w-6 h-6 text-primary flex-shrink-0 transition-transform duration-500"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-content">
+                <div class="p-6 pt-0 text-secondary leading-relaxed border-t border-slate-100/50">
+                  No, you will not be asleep. You will be in a state of deep relaxation, similar to daydreaming or the feeling just before you fall asleep. You remain fully awake, aware, and in complete control throughout the entire session. You can speak, move, and even open your eyes at any time if you wish.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item bg-slate-50 rounded-xl overflow-hidden shadow-sm border border-slate-100">
+              <button class="w-full text-left p-6 flex justify-between items-center focus:outline-none hover:bg-slate-100 transition-colors duration-200">
+                <span class="font-bold text-lg md:text-xl text-primary-dark pr-8">Will you be able to control my mind?</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon w-6 h-6 text-primary flex-shrink-0 transition-transform duration-500"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-content">
+                <div class="p-6 pt-0 text-secondary leading-relaxed border-t border-slate-100/50">
+                  Absolutely not. Hypnosis is a state of focused attention, not mind control. You cannot be made to do, say, or believe anything that conflicts with your values or will. You are a partner in the process, not a subject, and you can reject any suggestion that doesn't feel right to you.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item bg-slate-50 rounded-xl overflow-hidden shadow-sm border border-slate-100">
+              <button class="w-full text-left p-6 flex justify-between items-center focus:outline-none hover:bg-slate-100 transition-colors duration-200">
+                <span class="font-bold text-lg md:text-xl text-primary-dark pr-8">How will I feel immediately after a session?</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon w-6 h-6 text-primary flex-shrink-0 transition-transform duration-500"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-content">
+                <div class="p-6 pt-0 text-secondary leading-relaxed border-t border-slate-100/50">
+                  Everyone reacts differently. You might feel energetic and excited, or you might feel a sense of relief and deep tiredness as your body processes the emotional release. Both are completely normal. We will discuss self-care strategies to support you after your session.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       <!-- Contact Section -->
       <section id="contact" class="py-16 sm:py-24 bg-primary-light">
         <div class="container mx-auto px-4 max-w-3xl">
@@ -447,27 +548,29 @@
       const testimonialsContainer = document.getElementById('testimonials-container');
       const doubledTestimonials = [...testimonialData, ...testimonialData];
       
-      doubledTestimonials.forEach(t => {
-        const tDiv = document.createElement('div');
-        tDiv.className = "w-96 flex-shrink-0 px-4";
-        tDiv.innerHTML = `
-          <div class="bg-white p-8 rounded-lg shadow-lg h-full flex flex-col min-h-[300px] hover:shadow-xl transition-shadow duration-300">
-            <p class="text-secondary italic flex-grow text-lg leading-relaxed">"${t.text}"</p>
-            <div class="flex items-center mt-6 pt-6 border-t border-slate-100">
-              <img 
-                src="https://picsum.photos/id/${t.imgId}/200/200" 
-                alt="Profile of ${t.author}" 
-                class="w-14 h-14 rounded-full mr-4 object-cover border-2 border-primary-light"
-              />
-              <div>
-                <p class="font-bold text-primary-dark">${t.author}</p>
-                <p class="text-sm text-slate-500 font-medium">${t.role}</p>
+      if (testimonialsContainer) {
+        doubledTestimonials.forEach(t => {
+          const tDiv = document.createElement('div');
+          tDiv.className = "w-96 flex-shrink-0 px-4";
+          tDiv.innerHTML = `
+            <div class="bg-white p-8 rounded-lg shadow-lg h-full flex flex-col min-h-[300px] hover:shadow-xl transition-shadow duration-300">
+              <p class="text-secondary italic flex-grow text-lg leading-relaxed">"${t.text}"</p>
+              <div class="flex items-center mt-6 pt-6 border-t border-slate-100">
+                <img 
+                  src="https://picsum.photos/id/${t.imgId}/200/200" 
+                  alt="Profile of ${t.author}" 
+                  class="w-14 h-14 rounded-full mr-4 object-cover border-2 border-primary-light"
+                />
+                <div>
+                  <p class="font-bold text-primary-dark">${t.author}</p>
+                  <p class="text-sm text-slate-500 font-medium">${t.role}</p>
+                </div>
               </div>
             </div>
-          </div>
-        `;
-        testimonialsContainer.appendChild(tDiv);
-      });
+          `;
+          testimonialsContainer.appendChild(tDiv);
+        });
+      }
 
       // Mobile Menu Logic
       const menuBtn = document.getElementById('mobile-menu-btn');
@@ -489,35 +592,41 @@
         }
       }
 
-      menuBtn.addEventListener('click', toggleMenu);
-      mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+      if (menuBtn) {
+        menuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+      }
 
       // FAQ Accordion Logic
       const faqItems = document.querySelectorAll('.faq-item');
-      faqItems.forEach((item, index) => {
+      faqItems.forEach((item) => {
         const btn = item.querySelector('button');
         const content = item.querySelector('.faq-content');
         const icon = item.querySelector('.faq-icon');
 
-        btn.addEventListener('click', () => {
-          const isOpen = !content.classList.contains('max-h-0');
-          
-          // Close all
-          faqItems.forEach(i => {
-            const c = i.querySelector('.faq-content');
-            const ic = i.querySelector('.faq-icon');
-            c.classList.add('max-h-0', 'opacity-0');
-            c.classList.remove('max-h-96', 'opacity-100');
-            ic.classList.remove('rotate-180');
-          });
+        if (btn && content && icon) {
+          btn.addEventListener('click', () => {
+            const isOpen = content.classList.contains('open');
 
-          // Open clicked if not already open
-          if (!isOpen) {
-            content.classList.remove('max-h-0', 'opacity-0');
-            content.classList.add('max-h-96', 'opacity-100');
-            icon.classList.add('rotate-180');
-          }
-        });
+            // Close all
+            faqItems.forEach(i => {
+              const c = i.querySelector('.faq-content');
+              const ic = i.querySelector('.faq-icon');
+              c.style.maxHeight = null;
+              c.classList.remove('open');
+              c.style.opacity = '0';
+              ic.classList.remove('rotate-180');
+            });
+
+            // Open clicked if it wasn't already open
+            if (!isOpen) {
+              content.classList.add('open');
+              content.style.maxHeight = content.scrollHeight + "px";
+              content.style.opacity = '1';
+              icon.classList.add('rotate-180');
+            }
+          });
+        }
       });
 
       // Contact Form Logic
@@ -525,29 +634,31 @@
       const formContainer = document.getElementById('contact-form-container');
       const successMsg = document.getElementById('contact-success');
 
-      contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Simulate sending
-        const btn = contactForm.querySelector('button');
-        const originalText = btn.innerHTML;
-        btn.innerHTML = 'Sending...';
-        btn.disabled = true;
-
-        setTimeout(() => {
-          formContainer.classList.add('hidden');
-          successMsg.classList.remove('hidden');
+      if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
           
-          // Reset after 5 seconds
+          // Simulate sending
+          const btn = contactForm.querySelector('button');
+          const originalText = btn.innerHTML;
+          btn.innerHTML = 'Sending...';
+          btn.disabled = true;
+
           setTimeout(() => {
-            contactForm.reset();
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-            successMsg.classList.add('hidden');
-            formContainer.classList.remove('hidden');
-          }, 5000);
-        }, 600);
-      });
+            formContainer.classList.add('hidden');
+            successMsg.classList.remove('hidden');
+            
+            // Reset after 5 seconds
+            setTimeout(() => {
+              contactForm.reset();
+              btn.innerHTML = originalText;
+              btn.disabled = false;
+              successMsg.classList.add('hidden');
+              formContainer.classList.remove('hidden');
+            }, 5000);
+          }, 600);
+        });
+      }
     </script>
   </body>
 </html>
