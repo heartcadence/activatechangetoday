@@ -9,49 +9,6 @@
     <!-- Preload LCP Image -->
     <link rel="preload" as="image" href="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/Hero%20Images/activate-change-today-sophie-ashley-empowerment-coaching-success.webp" fetchpriority="high">
 
-    <!-- Critical CSS for immediate styling before Tailwind loads -->
-    <style>
-      :root {
-        --primary-light: #E0F2FE;
-        --primary-dark: #0C4A6E;
-        --secondary: #475569;
-      }
-      body { background-color: #f8fafc; margin: 0; font-family: sans-serif; }
-      header { min-height: 64px; background: white; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
-      #home { background-color: var(--primary-light); min-height: 500px; display: flex; align-items: center; overflow: hidden; }
-      
-      .scroller-fade::before,
-      .scroller-fade::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 30%;
-        max-width: 10rem;
-        z-index: 2;
-        pointer-events: none;
-      }
-      .scroller-fade::before { left: 0; background: linear-gradient(to right, #E0F2FE, transparent); }
-      .scroller-fade::after { right: 0; background: linear-gradient(to left, #E0F2FE, transparent); }
-      .scroller-fade-white::before { background: linear-gradient(to right, #ffffff, transparent); }
-      .scroller-fade-white::after { background: linear-gradient(to left, #ffffff, transparent); }
-
-      /* GPU Acceleration for Scrollers to reduce TBT */
-      .animate-scroll-hero, .animate-scroll {
-        will-change: transform;
-        transform: translateZ(0);
-        backface-visibility: hidden;
-      }
-
-      /* Accordion Transitions */
-      .faq-content {
-        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-      }
-    </style>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,6 +47,51 @@
         },
       };
     </script>
+    <style>
+      .scroller-fade::before,
+      .scroller-fade::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 30%;
+        max-width: 10rem;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .scroller-fade::before {
+        left: 0;
+        background: linear-gradient(to right, #E0F2FE, transparent);
+      }
+      .scroller-fade::after {
+        right: 0;
+        background: linear-gradient(to left, #E0F2FE, transparent);
+      }
+      .scroller-fade-white::before {
+        background: linear-gradient(to right, #ffffff, transparent);
+      }
+      .scroller-fade-white::after {
+         background: linear-gradient(to left, #ffffff, transparent);
+      }
+
+      /* GPU Acceleration for Scrollers */
+      .animate-scroll-hero, .animate-scroll {
+        will-change: transform;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+      }
+
+      /* Accordion Transitions */
+      .faq-content {
+        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+      }
+      .faq-content.open {
+        opacity: 1;
+      }
+    </style>
 </head>
   <body class="bg-slate-50 font-sans text-secondary relative overflow-x-hidden w-full">
     
@@ -156,7 +158,6 @@
           <div class="relative w-full overflow-hidden">
             <div class="relative w-full max-w-2xl mx-auto lg:max-w-none lg:mx-0 overflow-hidden scroller-fade">
               <div id="hero-scroller" class="flex w-max animate-scroll-hero hover:[animation-play-state:paused] py-4 min-h-[256px] sm:min-h-[288px] md:min-h-[352px]">
-                <!-- Static images 0-4 for immediate rendering (Performance) -->
                 <img src="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/Hero%20Images/activate-change-today-sophie-ashley-empowerment-coaching-success.webp" width="400" height="500" fetchpriority="high" loading="eager" alt="Sophie Ashley empowerment coaching for success" class="w-44 h-56 sm:w-52 sm:h-64 md:w-72 md:h-80 aspect-[4/5] object-cover rounded-xl shadow-lg mr-4 md:mr-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl" />
                 <img src="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/Hero%20Images/activate-change-today-career-mastery-coaching-professional-woman.webp" width="400" height="500" loading="eager" alt="Career mastery coaching for professional women" class="w-44 h-56 sm:w-52 sm:h-64 md:w-72 md:h-80 aspect-[4/5] object-cover rounded-xl shadow-lg mr-4 md:mr-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl" />
                 <img src="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/Hero%20Images/activate-change-today-supportive-conversation-therapy-session.webp" width="400" height="500" loading="lazy" decoding="async" alt="Supportive conversation therapy session" class="w-44 h-56 sm:w-52 sm:h-64 md:w-72 md:h-80 aspect-[4/5] object-cover rounded-xl shadow-lg mr-4 md:mr-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl" />
@@ -506,7 +507,7 @@
         { src: 'https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/Hero%20Images/activate-change-today-professional-coaching-interaction-women.webp', alt: 'Professional coaching interaction' }
       ];
 
-      // Testimonial Renderer Data (Using Pravatar for direct CDN access - no redirects)
+      // Testimonial Renderer Data
       const testimonialData = [
         { text: "My session with Sophie exceeded every expectation. In roughly three hours, she helped me break through emotional blocks rooted in my childhood and the challenges of being raised by boomer parents. Her insight, compassion and skill allowed me to release long-held patterns and step into a more empowered version of myself. I am deeply grateful.", author: "Sandra B.", role: "Financial Officer", avatarId: "sandra" },
         { text: "My daughter visited Sophie for a session a few months ago, the change we noticed in our daughter has been incredible. She actually smiled for the first time in months. She is a lot more confident and outgoing.", author: "Tracey M.", role: "Personal Support Worker", avatarId: "tracey" },
@@ -518,56 +519,94 @@
       ];
       
       window.addEventListener('DOMContentLoaded', () => {
-        // 1. Hero Scroller - Append the rest of the images
-        const heroScroller = document.getElementById('hero-scroller');
-        if (heroScroller) {
-          const remainingSet1 = heroImageData.slice(5);
-          const fullSet2 = heroImageData;
-          const toAppend = [...remainingSet1, ...fullSet2];
-          
-          toAppend.forEach(img => {
-            const imgEl = document.createElement('img');
-            imgEl.src = img.src;
-            imgEl.width = 400;
-            imgEl.height = 500;
-            imgEl.loading = "lazy";
-            imgEl.decoding = "async"; // Performance: Prevents main-thread decoding block
-            imgEl.alt = img.alt;
-            imgEl.className = "w-44 h-56 sm:w-52 sm:h-64 md:w-72 md:h-80 aspect-[4/5] object-cover rounded-xl shadow-lg mr-4 md:mr-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl";
-            heroScroller.appendChild(imgEl);
-          });
-        }
+        // Optimized Task Execution using requestIdleCallback
+        const performHeavyDomUpdates = () => {
+          // 1. Hero Scroller - Batch using DocumentFragment
+          const heroScroller = document.getElementById('hero-scroller');
+          if (heroScroller) {
+            const fragment = document.createDocumentFragment();
+            const remainingSet1 = heroImageData.slice(5);
+            const fullSet2 = heroImageData;
+            const toAppend = [...remainingSet1, ...fullSet2];
+            
+            toAppend.forEach(img => {
+              const imgEl = document.createElement('img');
+              imgEl.src = img.src;
+              imgEl.width = 400;
+              imgEl.height = 500;
+              imgEl.loading = "lazy";
+              imgEl.decoding = "async";
+              imgEl.alt = img.alt;
+              imgEl.className = "w-44 h-56 sm:w-52 sm:h-64 md:w-72 md:h-80 aspect-[4/5] object-cover rounded-xl shadow-lg mr-4 md:mr-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl";
+              fragment.appendChild(imgEl);
+            });
+            heroScroller.appendChild(fragment);
+          }
 
-        // 2. Testimonials Scroller
-        const testimonialsContainer = document.getElementById('testimonials-container');
-        if (testimonialsContainer) {
-          const doubledTestimonials = [...testimonialData, ...testimonialData];
-          doubledTestimonials.forEach(t => {
-            const tDiv = document.createElement('div');
-            tDiv.className = "w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-4";
-            tDiv.innerHTML = `
-              <div class="bg-white p-8 rounded-lg shadow-lg h-full flex flex-col min-h-[350px] hover:shadow-xl transition-shadow duration-300 border border-slate-100">
-                <p class="text-secondary italic flex-grow text-lg leading-relaxed">"${t.text}"</p>
-                <div class="flex items-center mt-6 pt-6 border-t border-slate-100">
-                  <img 
-                    src="https://i.pravatar.cc/100?u=${t.avatarId}" 
-                    alt="Profile of ${t.author}" 
-                    width="56" 
-                    height="56"
-                    loading="lazy"
-                    decoding="async"
-                    class="w-14 h-14 rounded-full mr-4 object-cover border-2 border-primary-light"
-                  />
-                  <div>
-                    <p class="font-bold text-primary-dark">${t.author}</p>
-                    <p class="text-sm text-slate-500 font-medium">${t.role}</p>
+          // 2. Testimonials Scroller - Batch using DocumentFragment
+          const testimonialsContainer = document.getElementById('testimonials-container');
+          if (testimonialsContainer) {
+            const fragment = document.createDocumentFragment();
+            const doubledTestimonials = [...testimonialData, ...testimonialData];
+            doubledTestimonials.forEach(t => {
+              const tDiv = document.createElement('div');
+              tDiv.className = "w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-4";
+              tDiv.innerHTML = `
+                <div class="bg-white p-8 rounded-lg shadow-lg h-full flex flex-col min-h-[350px] hover:shadow-xl transition-shadow duration-300 border border-slate-100">
+                  <p class="text-secondary italic flex-grow text-lg leading-relaxed">"${t.text}"</p>
+                  <div class="flex items-center mt-6 pt-6 border-t border-slate-100">
+                    <img 
+                      src="https://i.pravatar.cc/100?u=${t.avatarId}" 
+                      alt="Profile of ${t.author}" 
+                      width="56" 
+                      height="56"
+                      loading="lazy"
+                      decoding="async"
+                      class="w-14 h-14 rounded-full mr-4 object-cover border-2 border-primary-light"
+                    />
+                    <div>
+                      <p class="font-bold text-primary-dark">${t.author}</p>
+                      <p class="text-sm text-slate-500 font-medium">${t.role}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            `;
-            testimonialsContainer.appendChild(tDiv);
-          });
+              `;
+              fragment.appendChild(tDiv);
+            });
+            testimonialsContainer.appendChild(fragment);
+          }
+        };
+
+        // Scheduling: Use requestIdleCallback if available, otherwise fallback to setTimeout
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(performHeavyDomUpdates, { timeout: 2000 });
+        } else {
+          // As per suggestion: ensure non-critical images are handled only after first paint
+          window.setTimeout(performHeavyDomUpdates, 500);
         }
+      });
+
+      // Mobile Menu logic
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const iconMenu = document.getElementById('icon-menu');
+      const iconClose = document.getElementById('icon-close');
+
+      if (menuBtn) {
+        menuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+          iconMenu.classList.toggle('hidden');
+          iconClose.classList.toggle('hidden');
+        });
+      }
+
+      // Close menu on link click
+      document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          iconMenu.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        });
       });
 
       // FAQ Accordion logic
@@ -588,12 +627,6 @@
             icon.classList.add('rotate-180');
           }
         });
-      });
-
-      // Mobile Menu logic
-      document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-        const menu = document.getElementById('mobile-menu');
-        menu.classList.toggle('hidden');
       });
 
       // Contact Form logic
