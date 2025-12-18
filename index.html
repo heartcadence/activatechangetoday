@@ -6,12 +6,15 @@
     <title>Activate Change Today Coaching</title>
     <link rel="icon" type="image/webp" href="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/logo.webp">
     
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev">
+
     <!-- Preload LCP Image -->
     <link rel="preload" as="image" href="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/Hero%20Images/activate-change-today-sophie-ashley-empowerment-coaching-success.webp" fetchpriority="high">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"></noscript>
     
@@ -91,6 +94,18 @@
       .faq-content.open {
         opacity: 1;
       }
+
+      /* Layout Stability (Suggestion 3) */
+      #testimonials-container {
+        /* Prevents jumping when testimonials are injected */
+        min-height: 400px;
+        contain: layout;
+      }
+      @media (max-width: 640px) {
+        #testimonials-container {
+          min-height: 380px;
+        }
+      }
     </style>
 </head>
   <body class="bg-slate-50 font-sans text-secondary relative overflow-x-hidden w-full">
@@ -157,7 +172,7 @@
           
           <div class="relative w-full overflow-hidden">
             <div class="relative w-full max-w-2xl mx-auto lg:max-w-none lg:mx-0 overflow-hidden scroller-fade">
-              <div id="hero-scroller" class="flex w-max animate-scroll-hero hover:[animation-play-state:paused] py-4 min-h-[256px] sm:min-h-[288px] md:min-h-[352px]">
+              <div id="hero-scroller" class="flex w-max animate-scroll-hero hover:[animation-play-state:paused] py-4 min-h-[224px] sm:min-h-[256px] md:min-h-[320px]">
                 <img src="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/Hero%20Images/activate-change-today-sophie-ashley-empowerment-coaching-success.webp" width="400" height="500" fetchpriority="high" loading="eager" alt="Sophie Ashley empowerment coaching for success" class="w-44 h-56 sm:w-52 sm:h-64 md:w-72 md:h-80 aspect-[4/5] object-cover rounded-xl shadow-lg mr-4 md:mr-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl" />
                 <img src="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/Hero%20Images/activate-change-today-career-mastery-coaching-professional-woman.webp" width="400" height="500" loading="eager" alt="Career mastery coaching for professional women" class="w-44 h-56 sm:w-52 sm:h-64 md:w-72 md:h-80 aspect-[4/5] object-cover rounded-xl shadow-lg mr-4 md:mr-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl" />
                 <img src="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/Hero%20Images/activate-change-today-supportive-conversation-therapy-session.webp" width="400" height="500" loading="lazy" decoding="async" alt="Supportive conversation therapy session" class="w-44 h-56 sm:w-52 sm:h-64 md:w-72 md:h-80 aspect-[4/5] object-cover rounded-xl shadow-lg mr-4 md:mr-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl" />
