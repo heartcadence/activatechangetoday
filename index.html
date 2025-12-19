@@ -132,16 +132,37 @@
         opacity: 1;
       }
 
-      /* Layout Stability */
+      /* CLS PREVENTION: Layout Stability for Hero and Testimonials */
+      #hero-scroller {
+        min-height: 256px; /* 224px (h-56) + 32px (py-4) */
+        display: flex;
+        overflow: hidden;
+        contain: layout;
+      }
+      @media (min-width: 640px) {
+        #hero-scroller { min-height: 288px; } /* 256px (h-64) + 32px */
+      }
+      @media (min-width: 768px) {
+        #hero-scroller { min-height: 352px; } /* 320px (h-80) + 32px */
+      }
+
       #testimonials-container {
         /* Prevents jumping when testimonials are injected */
-        min-height: 400px;
+        min-height: 420px;
         contain: layout;
+        display: flex;
+        overflow: hidden;
       }
       @media (max-width: 640px) {
         #testimonials-container {
-          min-height: 380px;
+          min-height: 480px; /* Accounts for narrower, taller cards on mobile */
         }
+      }
+
+      /* Explicit aspect ratio for scroller images to prevent reflows */
+      #hero-scroller img {
+        aspect-ratio: 4 / 5;
+        content-visibility: auto;
       }
     </style>
 </head>
@@ -209,7 +230,7 @@
           
           <div class="relative w-full overflow-hidden">
             <div class="relative w-full max-w-2xl mx-auto lg:max-w-none lg:mx-0 overflow-hidden scroller-fade">
-              <div id="hero-scroller" class="flex w-max animate-scroll-hero hover:[animation-play-state:paused] py-4 min-h-[224px] sm:min-h-[256px] md:min-h-[320px]">
+              <div id="hero-scroller" class="flex w-max animate-scroll-hero hover:[animation-play-state:paused] py-4">
                 <!-- LCP IMAGE: HIGH PRIORITY + EAGER -->
                 <img src="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/Hero%20Images/activate-change-today-sophie-ashley-empowerment-coaching-success.webp" width="288" height="360" fetchpriority="high" loading="eager" sizes="(max-width: 768px) 176px, 288px" alt="Sophie Ashley empowerment coaching for success" class="w-44 h-56 sm:w-52 sm:h-64 md:w-72 md:h-80 aspect-[4/5] object-cover rounded-xl shadow-lg mr-4 md:mr-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl" />
                 
