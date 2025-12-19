@@ -13,7 +13,7 @@
     <link rel="preload" href="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/fonts/montserrat-v31-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/fonts/playfair-v10-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 
-    <!-- Preload LCP Image with correct sizing hints -->
+    <!-- Preload LCP Image with correct sizing hints and high fetch priority -->
     <link rel="preload" as="image" href="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/Hero%20Images/activate-change-today-sophie-ashley-empowerment-coaching-success.webp" imagesizes="(max-width: 768px) 176px, 288px" fetchpriority="high">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -151,7 +151,7 @@
     <header class="bg-white shadow-md sticky top-0 z-50 min-h-[56px] md:min-h-[64px]">
       <div class="container mx-auto flex justify-between items-center px-4 py-2">
         <a href="#home" class="flex items-center gap-2 group">
-          <img src="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/logo.webp" alt="ACT Logo" width="48" height="48" class="h-10 w-10 md:h-12 md:w-12 object-contain" />
+          <img src="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/logo.webp" alt="ACT Logo" width="48" height="48" fetchpriority="low" class="h-10 w-10 md:h-12 md:w-12 object-contain" />
           <span class="text-lg md:text-xl font-serif text-primary-dark font-bold group-hover:text-primary transition-colors">Activate Change Today</span>
         </a>
         
@@ -210,11 +210,14 @@
           <div class="relative w-full overflow-hidden">
             <div class="relative w-full max-w-2xl mx-auto lg:max-w-none lg:mx-0 overflow-hidden scroller-fade">
               <div id="hero-scroller" class="flex w-max animate-scroll-hero hover:[animation-play-state:paused] py-4 min-h-[224px] sm:min-h-[256px] md:min-h-[320px]">
+                <!-- LCP IMAGE: HIGH PRIORITY + EAGER -->
                 <img src="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/Hero%20Images/activate-change-today-sophie-ashley-empowerment-coaching-success.webp" width="288" height="360" fetchpriority="high" loading="eager" sizes="(max-width: 768px) 176px, 288px" alt="Sophie Ashley empowerment coaching for success" class="w-44 h-56 sm:w-52 sm:h-64 md:w-72 md:h-80 aspect-[4/5] object-cover rounded-xl shadow-lg mr-4 md:mr-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl" />
-                <img src="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/Hero%20Images/activate-change-today-career-mastery-coaching-professional-woman.webp" width="288" height="360" loading="eager" sizes="(max-width: 768px) 176px, 288px" alt="Career mastery coaching for professional women" class="w-44 h-56 sm:w-52 sm:h-64 md:w-72 md:h-80 aspect-[4/5] object-cover rounded-xl shadow-lg mr-4 md:mr-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl" />
-                <img src="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/Hero%20Images/activate-change-today-supportive-conversation-therapy-session.webp" width="288" height="360" loading="lazy" decoding="async" sizes="(max-width: 768px) 176px, 288px" alt="Supportive conversation therapy session" class="w-44 h-56 sm:w-52 sm:h-64 md:w-72 md:h-80 aspect-[4/5] object-cover rounded-xl shadow-lg mr-4 md:mr-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl" />
-                <img src="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/Hero%20Images/activate-change-today-joyful-breakthrough-rtt-therapy.webp" width="288" height="360" loading="lazy" decoding="async" sizes="(max-width: 768px) 176px, 288px" alt="Joyful breakthrough with RTT therapy" class="w-44 h-56 sm:w-52 sm:h-64 md:w-72 md:h-80 aspect-[4/5] object-cover rounded-xl shadow-lg mr-4 md:mr-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl" />
-                <img src="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/Hero%20Images/activate-change-today-business-coaching-entrepreneurial-growth.webp" width="288" height="360" loading="lazy" decoding="async" sizes="(max-width: 768px) 176px, 288px" alt="Business coaching for entrepreneurial growth" class="w-44 h-56 sm:w-52 sm:h-64 md:w-72 md:h-80 aspect-[4/5] object-cover rounded-xl shadow-lg mr-4 md:mr-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl" />
+                
+                <!-- OTHER HERO IMAGES: LOW PRIORITY + LAZY -->
+                <img src="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/Hero%20Images/activate-change-today-career-mastery-coaching-professional-woman.webp" width="288" height="360" loading="lazy" fetchpriority="low" sizes="(max-width: 768px) 176px, 288px" alt="Career mastery coaching for professional women" class="w-44 h-56 sm:w-52 sm:h-64 md:w-72 md:h-80 aspect-[4/5] object-cover rounded-xl shadow-lg mr-4 md:mr-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl" />
+                <img src="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/Hero%20Images/activate-change-today-supportive-conversation-therapy-session.webp" width="288" height="360" loading="lazy" fetchpriority="low" decoding="async" sizes="(max-width: 768px) 176px, 288px" alt="Supportive conversation therapy session" class="w-44 h-56 sm:w-52 sm:h-64 md:w-72 md:h-80 aspect-[4/5] object-cover rounded-xl shadow-lg mr-4 md:mr-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl" />
+                <img src="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/Hero%20Images/activate-change-today-joyful-breakthrough-rtt-therapy.webp" width="288" height="360" loading="lazy" fetchpriority="low" decoding="async" sizes="(max-width: 768px) 176px, 288px" alt="Joyful breakthrough with RTT therapy" class="w-44 h-56 sm:w-52 sm:h-64 md:w-72 md:h-80 aspect-[4/5] object-cover rounded-xl shadow-lg mr-4 md:mr-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl" />
+                <img src="https://pub-ea9f7e7fb75a4e829aa21b42018bbe1c.r2.dev/Hero%20Images/activate-change-today-business-coaching-entrepreneurial-growth.webp" width="288" height="360" loading="lazy" fetchpriority="low" decoding="async" sizes="(max-width: 768px) 176px, 288px" alt="Business coaching for entrepreneurial growth" class="w-44 h-56 sm:w-52 sm:h-64 md:w-72 md:h-80 aspect-[4/5] object-cover rounded-xl shadow-lg mr-4 md:mr-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl" />
               </div>
             </div>
           </div>
@@ -588,6 +591,7 @@
               imgEl.height = 360;
               imgEl.sizes = "(max-width: 768px) 176px, 288px";
               imgEl.loading = "lazy";
+              imgEl.fetchPriority = "low"; // ADVANCED LCP OPTIMIZATION
               imgEl.decoding = "async";
               imgEl.alt = img.alt;
               imgEl.className = "w-44 h-56 sm:w-52 sm:h-64 md:w-72 md:h-80 aspect-[4/5] object-cover rounded-xl shadow-lg mr-4 md:mr-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl";
@@ -614,6 +618,7 @@
                       width="56" 
                       height="56"
                       loading="lazy"
+                      fetchpriority="low"
                       decoding="async"
                       class="w-14 h-14 rounded-full mr-4 object-cover border-2 border-primary-light"
                     />
