@@ -551,7 +551,11 @@
           <!-- White Form Container -->
           <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 relative z-10">
             <div id="contact-form-container">
-              <form id="contact-form" class="space-y-6">
+              <form id="contact-form" action="https://formsubmit.co/sophie@activatechangetoday.ca" method="POST" class="space-y-6">
+                <!-- FormSubmit Configuration -->
+                <input type="hidden" name="_next" value="https://activatechangetoday.ca/thank-you">
+                <input type="hidden" name="_subject" value="New Website Inquiry!">
+                
                 <!-- Name and Email Grid -->
                 <div class="grid md:grid-cols-2 gap-6">
                   <div class="space-y-2">
@@ -693,9 +697,8 @@
       const contactForm = document.getElementById('contact-form');
       if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          document.getElementById('contact-form-container').classList.add('hidden');
-          document.getElementById('contact-success').classList.remove('hidden');
+          // Native form submission will now occur because preventDefault is removed.
+          // The page will redirect to the URL specified in the '_next' input.
         });
       }
     </script>
